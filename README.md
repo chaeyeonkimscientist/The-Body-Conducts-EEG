@@ -44,12 +44,19 @@ pipeline can be run on your own recordings.
 
 ## Outputs
 
-- **MIDI** — continuous control signals exported per condition
-  (`<condition>_stress.mid`), plus a jazz-scale pitch mapping variant.
-- **Spectrogram heatmaps** — animated STFT visualizations per condition.
+Example outputs from the **brief-recovery** condition:
 
-(Add a couple of example `.mid` files and a heatmap GIF to `outputs/` so they
-render directly on GitHub.)
+**Spectrogram heatmap** — animated polar STFT showing how the EEG frequency
+content shifts over time. Brighter arcs are higher spectral power.
+
+![Spectrogram heatmap, brief-recovery condition](outputs/CapBriefrecovery.gif)
+
+**Sonification** — the normalized neural index mapped to MIDI control-change
+values: [`CapBriefRecovery_stress.mid`](outputs/CapBriefRecovery_stress.mid)
+(download to play in any DAW or MIDI player).
+
+The pipeline produces one heatmap and one MIDI file per recorded condition;
+these are a single representative pair.
 
 ## Repo structure
 
