@@ -1,9 +1,6 @@
 # Raw EEG recordings (personal biometric data — keep private)
 data/*.txt
 
-# Generated outputs (optional: comment out if you want to commit examples)
-*.mid
-
 # Python
 __pycache__/
 *.pyc
