@@ -12,7 +12,7 @@ analyzing how they shift across cognitive conditions.
 
 Raw EEG off consumer hardware is messy: noisy channels, artifacts, and
 variable-length recordings. The goal here is to take that raw signal and pull
-out a stable, interpretable feature — alpha-band power — that tracks cognitive
+out a stable, interpretable feature (alpha-band power) that tracks cognitive
 load over time, then render it as a continuous control signal.
 
 ## Data
@@ -28,18 +28,18 @@ pipeline can be run on your own recordings.
 
 ## Method
 
-1. **Load & clean** — parse OpenBCI exports, keep the 4 EXG channels, coerce to
+1. **Load & clean**: parse OpenBCI exports, keep the 4 EXG channels, coerce to
    numeric, and drop invalid rows.
-2. **Bandpass filter** — 4th-order Butterworth filter isolating the alpha band
+2. **Bandpass filter**: 4th-order Butterworth filter isolating the alpha band
    (8–13 Hz), applied with zero-phase `filtfilt`.
-3. **Band-power extraction** — sliding-window log power (0.5 s window, 0.1 s
+3. **Band-power extraction**: sliding-window log power (0.5 s window, 0.1 s
    step), averaged across channels.
-4. **Neural index** — alpha suppression relative to the baseline condition,
+4. **Neural index**: alpha suppression relative to the baseline condition,
    smoothed with a moving average and normalized to a 0–1 range per segment.
-5. **Spectral analysis** — short-time Fourier transform (STFT) spectrograms per
+5. **Spectral analysis**: short-time Fourier transform (STFT) spectrograms per
    condition, rendered as animated polar heatmaps to visualize how the frequency
    content shifts over time.
-6. **Sonification** — the normalized index is mapped to MIDI control-change
+6. **Sonification**: the normalized index is mapped to MIDI control-change
    values and exported as `.mid` files for use in a score.
 
 ## Outputs
